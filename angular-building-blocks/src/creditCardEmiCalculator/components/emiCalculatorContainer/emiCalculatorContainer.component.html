@@ -1,0 +1,16 @@
+<fieldset>
+    <legend>Credit Card Emi Calculator</legend>
+    <table>
+        <tr>
+            <td>
+                <emi-calculator (onResultComputed)="onResultComputed_Handler($event)"></emi-calculator>
+                <emi-summary [result]="resultData"></emi-summary>
+            </td>
+            <td>
+                <emi-breakup></emi-breakup>
+            </td>
+        </tr>
+    </table>
+    
+   
+</fieldset>
