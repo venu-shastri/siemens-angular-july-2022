@@ -1,4 +1,6 @@
 import { Component,EventEmitter, Inject, Output } from "@angular/core";
+import { ConsoleLoggerService } from "src/app/services/consoleLogger.service";
+import { CalculationParameterModel } from "src/creditCardEmiCalculator/models/calculationParameter.model";
 import { CalculationSummaryModel } from "src/creditCardEmiCalculator/models/calculationSummary.model";
 import { EmiCalculatorService } from "src/creditCardEmiCalculator/services/emiCalculator.service";
 
@@ -12,13 +14,11 @@ export class EmiCalculatorComponent{
      tenure:number=0;
      interestRate:number=0;
      @Output()
-     onResultComputed=new EventEmitter<CalculationSummaryModel>();
-     //Dependency
-     serviceRef!:EmiCalculatorService;
-
+     onParameterComputed=new EventEmitter<CalculationParameterModel>();
+     
      //Constructor Injection
-     constructor(@Inject("EmiCalculatorService") service:EmiCalculatorService){
-         this.serviceRef=service;
+     constructor(){
+         
      }
 
      setAmount(value:string){
@@ -32,16 +32,16 @@ export class EmiCalculatorComponent{
      }
      calculateEmi(){
          
-         let resultModel=this.serviceRef.calculateEmi(this.amount,this.tenure,this.interestRate);
-         console.log("calculateEmi called");
-         this.onResultComputed.emit(resultModel); //publish 
+         
+         
+         this.onParameterComputed.emit(new CalculationParameterModel(this.amount,this.tenure,this.interestRate)); //publish 
      }
      reset(){
-        console.log("reset() called");
+
         this.amount=0;
         this.tenure=0;
         this.interestRate=0;
-        this.onResultComputed.emit(new CalculationSummaryModel(0,0,0));
+       /// this.onResultComputed.emit(new CalculationSummaryModel(0,0,0));
          
      }
 
