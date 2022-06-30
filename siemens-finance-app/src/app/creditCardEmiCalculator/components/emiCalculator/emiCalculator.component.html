@@ -1,0 +1,48 @@
+<fieldset>
+    <legend>
+        EmiCalculator
+    </legend>
+    <label-widget [text]="'Type of EMI'"></label-widget>
+    <table>
+        <tr>
+            <td>
+                <label-widget [text]="'Transaction Amount'"></label-widget>
+            </td>
+            <td>
+                <!-- template reference variable   eventBinding-->
+                <input #amountTextBox type="text" 
+                (input)='setAmount(amountTextBox.value)'
+                [value]='amount' />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label-widget [text]="'Tenure'"></label-widget>
+            </td>
+            <td>
+                <input type="text" #tenureTextBox 
+                (input)="setTenure(tenureTextBox.value)"
+                [value]='tenure'/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label-widget [text]="'Rate Of Interest Per Annum(%)'"></label-widget>
+            </td>
+            <td>
+                <input type="text" #interestRateTextBox 
+                (input)="setRateOfInterest(interestRateTextBox.value)"
+                [value]='interestRate'/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button (click)="calculateEmi()">Calculate Emi</button>
+            </td>
+            <td>
+                <button (click)="reset()">Reset</button>
+            </td>
+        </tr>
+       
+    </table>
+</fieldset>

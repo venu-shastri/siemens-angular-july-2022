@@ -1,0 +1,38 @@
+
+<form #loginForm="ngForm" (ngSubmit)="onLogin(loginForm.form)">
+<table>
+    <tr>
+        <td>UserName:</td>
+        <td>
+            <input type="text" name="userNameEditBox" [(ngModel)]="userName" #userNameTextBox="ngModel" required maxlength="10"/>
+        </td>
+        <td>
+            <div *ngIf="userNameTextBox.errors && (userNameTextBox.dirty || userNameTextBox.touched)">
+                <p *ngIf="userNameTextBox.errors['required']">UserName is required</p>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>Password:</td>
+        <td>
+            <input type="text" name="passwordEditBox" [(ngModel)]="password" #passwordTextBox="ngModel" required/>
+        </td>
+        <td>
+            <div *ngIf="passwordTextBox.errors && (passwordTextBox.dirty || passwordTextBox.touched)">
+                <p *ngIf="passwordTextBox.errors['required']">Password is required</p>
+                <p *ngIf="passwordTextBox.errors['pattern']">Password pattern mismatch</p>
+
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="submit" value="Submit" formNoValidate/>
+        </td>
+        <td>
+            <input type="button" value="clear" (click)="clear(loginForm.form)"/>
+        </td>
+    </tr>
+   
+</table>
+</form>

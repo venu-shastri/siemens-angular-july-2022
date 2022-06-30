@@ -1,0 +1,35 @@
+
+  
+    <!-- Resources -->
+    <h2>Welcome</h2>
+    <p>Here are some links to help you get started:</p>
+  
+      <a class="card" [routerLink]="['./login']">
+        
+        <span>Login</span>
+        <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>    </a>
+  
+      <a class="card" [routerLink]="['./signup']">
+        
+        <span>Signup</span>
+        <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+      </a>
+  
+      <a class="card" [routerLink]="['./fp']">
+        
+        <span>Forgot UserName/Password</span>
+        <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+      </a>
+      
+    
+    <div class="card-container">
+        <router-outlet></router-outlet>
+
+    </div>
+    
+
+    
+  
+  
+
+  

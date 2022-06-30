@@ -1,0 +1,26 @@
+<table>
+    <tr>
+        <td>
+           <label-widget [text]="'Monthly EMI'"></label-widget>
+        </td>
+        <td>
+            <label-widget [text]="result.emi | tostring | inr:'1':'2'"  ></label-widget>
+        </td>
+    </tr>
+    <tr>
+        <td>
+           <label-widget [text]="'Total Interest Amount'"></label-widget>
+        </td>
+        <td>
+            <label-widget [text]="result.totalInterest | tostring | inr"></label-widget>
+        </td>
+    </tr>
+    <tr>
+        <td>
+           <label-widget [text]="'Total Amount Payable'"></label-widget>
+        </td>
+        <td>
+            <label-widget [text]="result.totalAmountPayable | tostring | inr"></label-widget>
+        </td>
+    </tr>
+</table>
